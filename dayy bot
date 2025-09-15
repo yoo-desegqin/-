@@ -1,0 +1,262 @@
+# -<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Naruto Style</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            margin: 20px;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 10px;
+        }
+        
+        .logo span {
+            color: #ffcc00;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+        
+        .characters {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .character {
+            width: 150px;
+            height: 150px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.5));
+        }
+        
+        .naruto {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/616/616408.png');
+        }
+        
+        .sasuke {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/616/616430.png');
+        }
+        
+        .payment-methods {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .payment-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .payment-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #ffcc00;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .payment-info {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 15px 0;
+            font-size: 1.1rem;
+        }
+        
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            margin: 15px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: #6a11cb;
+        }
+        
+        .channel-menu {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .channel-button {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        
+        .channel-button:hover {
+            background: #128C7E;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        
+        .copy-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background 0.3s;
+        }
+        
+        .copy-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .characters {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .payment-methods {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .payment-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">NARUTO<span>PAY</span></div>
+            <div class="subtitle">Lakukan pembayaran dengan metode di bawah ini</div>
+        </header>
+        
+        <div class="characters">
+            <div class="character naruto"></div>
+            <div class="character sasuke"></div>
+        </div>
+        
+        <div class="payment-methods">
+            <div class="payment-card">
+                <h2 class="payment-title"><i class="fas fa-money-bill-wave"></i> DANA</h2>
+                <div class="payment-info">
+                    <p>085750100740</p>
+                    <button class="copy-btn" onclick="copyText('085750100740')">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+                <div class="payment-info">
+                    <p>a.n RIO HERXXXXX</p>
+                </div>
+            </div>
+            
+            <div class="payment-card">
+                <h2 class="payment-title"><i class="fas fa-qrcode"></i> QRIS</h2>
+                <div class="qr-code">
+                    <i class="fas fa-qrcode"></i>
+                </div>
+                <p>Scan QRIS untuk pembayaran</p>
+            </div>
+        </div>
+        
+        <div class="channel-menu">
+            <h2 class="payment-title"><i class="fab fa-whatsapp"></i> Saluran WhatsApp</h2>
+            <p>Bergabunglah dengan saluran WhatsApp kami untuk informasi terbaru</p>
+            <a href="https://whatsapp.com/channel/0029Vb5zOMmG3R3aQ8HOAv2N" target="_blank" class="channel-button">
+                <i class="fab fa-whatsapp"></i> Join Channel
+            </a>
+        </div>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 NarutoPay - All rights reserved</p>
+    </footer>
+
+    <script>
+        function copyText(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Berhasil disalin: ' + text);
+            }).catch(err => {
+                console.error('Gagal menyalin: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
